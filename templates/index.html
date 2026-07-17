@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodline — Talk to a mood</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- ===================== MOOD SELECT SCREEN ===================== -->
+  <section id="select-screen" class="screen">
+    <div class="select-wrap">
+      <p class="eyebrow">MOODLINE</p>
+      <h1 class="hero-title">Pick a mood.<br>It'll pick a fight,<br>a punchline, or a tissue.</h1>
+      <p class="hero-sub">Same brain, three completely different tempers. Choose who you're talking to before you say hello.</p>
+
+      <div class="dials">
+        <button class="dial" data-mode="1" data-name="Angry" style="--mood: var(--angry)">
+          <span class="dial-blob blob-angry"></span>
+          <span class="dial-name">Angry</span>
+          <span class="dial-desc">Short fuse. Shorter patience.</span>
+        </button>
+
+        <button class="dial" data-mode="2" data-name="Funny" style="--mood: var(--funny)">
+          <span class="dial-blob blob-funny"></span>
+          <span class="dial-name">Funny</span>
+          <span class="dial-desc">Everything's a bit, including this.</span>
+        </button>
+
+        <button class="dial" data-mode="3" data-name="Sad" style="--mood: var(--sad)">
+          <span class="dial-blob blob-sad"></span>
+          <span class="dial-name">Sad</span>
+          <span class="dial-desc">Existentially tired. Emotionally honest.</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CHAT SCREEN ===================== -->
+  <section id="chat-screen" class="screen hidden">
+    <header class="chat-header">
+      <div class="chat-identity">
+        <span id="chat-avatar" class="avatar-blob"></span>
+        <div>
+          <p class="chat-name" id="chat-mode-name">Funny</p>
+          <p class="chat-status" id="chat-status">online, allegedly</p>
+        </div>
+      </div>
+      <button id="switch-mode" class="ghost-btn">Switch mood</button>
+    </header>
+
+    <main id="messages" class="messages"></main>
+
+    <form id="chat-form" class="chat-form">
+      <input id="chat-input" type="text" placeholder="Say something..." autocomplete="off" />
+      <button type="submit" id="send-btn" class="send-btn">Send</button>
+    </form>
+  </section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
